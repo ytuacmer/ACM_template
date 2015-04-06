@@ -10,6 +10,8 @@ ACM开源模板
 
 http://svtter.gitbooks.io/book_acm/
 
+此外，你还可以通过这条途径下载到本模板的电子版本，供打印使用
+
 目录
 ---
 
