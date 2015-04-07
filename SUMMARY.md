@@ -5,6 +5,7 @@
 * [简单技巧](tips/skill.md)
 * [赛用cpp](init.md)
 * [赛用vimrc](https://github.com/ytuacmer/ACM-vimrc)
+* [库函数使用](lib.md)
 * [分类](classification/README.md)
     * [图论](classification/图论/README.md)
     * [数论](classification/数论/README.md)
