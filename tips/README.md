@@ -2,6 +2,7 @@
 ===
 
 - [卡题点](./卡题点.md)
+- [生成测试数据](#生成测试数据)
 - [位操作](./C++按位操作符.md)
 - [int,long,long long类型范围](#类型范围)
 
@@ -55,3 +56,35 @@
 |__int64的最大值：              |9223372036854775807    |
 |__int64的最小值：              |-9223372036854775808   |
 |unsigned __int64的最大值：     |18446744073709551615   |
+
+
+生成测试数据
+---
+
+比赛的时候出现了100 * 100组数据的情况，但是当时使用freopen忘记了具体的步骤，
+特意重新写一下，也是属于基础的内容。
+
+生成一百行数据，每行100个数据，每个数据为100。
+
+```c
+#include <stdio.h>
+#include <iostream>`enter code here`
+using namespace std;
+
+int main()
+{
+    freopen("input", "r", stdin);
+    freopen("output", "w", stdout);
+
+    for(int i = 0; i < 100; i++)
+        for(int j = 0; j < 100; j++)
+            printf("%d%c", 100, j == 99? '\n' : ' ');
+
+    fclose(stdin);
+    fclose(stdout);
+    return 0;
+}
+```
+
+运行过后生成的数据（本来应该输出在屏幕上，此时不会输出到屏幕，而是输出到文件）会保存到output文件中。
+如果需要使用直接更改output的文件名，再使用一次freopen('r')即可。
