@@ -32,8 +32,6 @@ datetime日期库的使用
 ---
 
 ```python
-
-# 1000天以后
 import datetime
 a = datetime.datetime(2015,02,19)
 a += datetime.timedelta(1000)

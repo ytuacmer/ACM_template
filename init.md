@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <set>
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -16,6 +17,7 @@ using namespace std;
 #define MEM(a) memset(a, 0, sizeof(a))
 #define MEMM(a) memset(b, -1, sizeof(b))
 #define DEB(x, n) cout << (x) << " " << (n) << endl
+const double nt PI = acos(-1.0);
 
 #define CR printf("\n")
 
@@ -33,7 +35,8 @@ void debug(Type a[], int len)
 int main()
 {
 #ifdef DEBUG
-    freopen("input", "r", stdin);
+    freopen("input", "r", stdin);       //从input文件中读入
+    // freopen("output", "w", stdout);     //输出到output文件
 #endif
 
     return 0;
