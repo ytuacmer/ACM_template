@@ -7,6 +7,7 @@
 - [模算术](#模算术)
 - [欧拉函数筛法](#欧拉函数筛法)
 - [进制转换](#进制转换)
+- [线性筛求莫比乌斯反演](#线性筛求莫比乌斯反演)
 
 
 素数定理
@@ -88,6 +89,30 @@ int gen_primes(int n)
     return c;
 }
 
+
+// 3. bitset速度打
+const int N = 10000010;  
+  
+bitset<N> prime;  
+LL phi[N];  
+LL f[N];  
+int p[N];  
+int k;  
+  
+void isprime()  
+{  
+    k = 0;  
+    prime.set();  
+    for(int i=2; i<N; i++)  
+    {  
+        if(prime[i])  
+        {  
+            p[k++] = i;  
+            for(int j=i+i; j<N; j+=i)  
+                prime[j] = false;  
+        }  
+    }  
+}  
 ```
 
 模算术
@@ -275,4 +300,46 @@ void phi_table(int n)
 
 ```
 
+线性筛求莫比乌斯反演
+---
 
+莫比乌斯反演:
+
+1. $F(n) = ∑_{d|n} f(d)$
+2. $f(n) = ∑_{d|n} u(d)F(n/d)$
+
+$u(d)$ 就是莫比乌斯反演函数
+
+u(d)的特性:
+1. d = 1, u(d) = 1
+2. d = p1p2p3p4..pr, pi均为素数，那么u(d) = (-1)^k
+3. 其他情况u(d) = 0
+4. $∑_{d|n}u(d) = {1, n=1; 0, n>1}$
+5. $∑_{d|n}u(d)/d = euler(n)/n$
+
+```c
+void Init()
+{
+    memset(vis,0,sizeof(vis));
+    mu[1] = 1;
+    cnt = 0;
+    for(int i=2; i<N; i++)
+    {
+        if(!vis[i])
+        {
+            prime[cnt++] = i;
+            mu[i] = -1;
+        }
+        for(int j=0; j<cnt&&i*prime[j]<N; j++)
+        {
+            vis[i*prime[j]] = 1;
+            if(i%prime[j]) mu[i*prime[j]] = -mu[i];
+            else
+            {
+                mu[i*prime[j]] = 0;
+                break;
+            }
+        }
+    }
+}
+```
