@@ -17,7 +17,7 @@ using namespace std;
 #define MEM(a) memset(a, 0, sizeof(a))
 #define MEMM(a) memset(b, -1, sizeof(b))
 #define DEB(x, n) cout << (x) << " " << (n) << endl
-#define For(i, n) for(int (i) = 0; (i) < (n); i++)
+#define FOR(i, s, e) for(int (i) = (s); (i) < (e); (i)++)
 const double nt PI = acos(-1.0);
 
 #define CR printf("\n")
