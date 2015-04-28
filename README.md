@@ -17,12 +17,17 @@ http://svtter.gitbooks.io/book_acm/
 
 * [当前任务](task.md)
 * [训练计划](ACM_planlist/ACM训练计划.md)
-* [简单技巧](skill.md)
-* [赛用cpp](init.cpp)
+* [提示](tips/README.md)
+    * [位操作](tips/位操作.md)
+    * [卡题点](tips/卡题点.md)
+    * [奇技淫巧](tips/skill.md)
+    * [借助Python](tips/python.md)
+* [赛用cpp](init.md)
 * [赛用vimrc](https://github.com/ytuacmer/ACM-vimrc)
-* [分类](classification/README)
+* [库函数使用](lib.md)
+* [分类](classification/README.md)
     * [图论](classification/图论/README.md)
-    * [数论，大数](classification/数论/README.md)
+    * [数论](classification/数论/README.md)
     * [基础数据结构](classification/基础数据结构/README.md)
     * [搜索](classification/搜索/README.md)
     * [计算几何](classification/计算几何/README.md)
@@ -36,9 +41,10 @@ http://svtter.gitbooks.io/book_acm/
     * [杂题，水题](classification/杂题，水题/README.md)
     * [组合数学](classification/组合数学/README.md)
     * [网络流](classification/网络流/README.md)
-* [解题报告](Exam/README.md)
+* [解题报告](解题报告/README.md)
+* [相关学习资料](相关学习资料/README.md)
 
 LICENSE 
 ---
 
-LGPL
+GPL
