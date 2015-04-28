@@ -68,3 +68,18 @@ int main()
     return 0;
 }
 ```
+
+printf的进制利用
+---
+
+x, o, d
+
+```c
+// 大写小写16进制
+printf("%X", d);
+printf("%x", d);
+
+// 效果不同
+printf("%02X", d);
+printf("%.2X", d);
+```

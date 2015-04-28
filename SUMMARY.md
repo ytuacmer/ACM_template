@@ -2,7 +2,11 @@
 
 * [当前任务](task.md)
 * [训练计划](ACM_planlist/ACM训练计划.md)
-* [简单技巧](tips/skill.md)
+* [提示](tips/README.md)
+    * [位操作](tips/位操作.md)
+    * [卡题点](tips/卡题点.md)
+    * [奇技淫巧](tips/skill.md)
+    * [借助Python](tips/python.md)
 * [赛用cpp](init.md)
 * [赛用vimrc](https://github.com/ytuacmer/ACM-vimrc)
 * [库函数使用](lib.md)
