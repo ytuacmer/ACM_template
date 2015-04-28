@@ -15,7 +15,7 @@ using namespace std;
 #define INF 0x3f3f3f3f
 #define ll long long int
 #define MEM(a) memset(a, 0, sizeof(a))
-#define MEMM(a) memset(b, -1, sizeof(b))
+#define MEMM(a) memset(a, -1, sizeof(a))
 #define DEB(x, n) cout << (x) << " " << (n) << endl
 #define FOR(i, s, e) for(int (i) = (s); (i) < (e); (i)++)
 const double nt PI = acos(-1.0);
