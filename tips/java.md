@@ -157,6 +157,8 @@ public class BigDecimalDemo01{
 Java中的数据结构
 ---
 
+好文推荐: http://blog.csdn.net/meyoung01/article/details/15812895
+
 1. Set
 
 Set是接口，此外，还有诸多类，时间问题日后补充。
