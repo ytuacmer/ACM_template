@@ -22,6 +22,7 @@ http://svtter.gitbooks.io/book_acm/
     * [卡题点](tips/卡题点.md)
     * [奇技淫巧](tips/skill.md)
     * [借助Python](tips/python.md)
+    * [使用Java](tips/java.md)
 * [赛用cpp](init.md)
 * [赛用vimrc](https://github.com/ytuacmer/ACM-vimrc)
 * [库函数使用](lib.md)
