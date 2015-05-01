@@ -162,6 +162,18 @@ ll pow_mod(ll a, ll p, ll n)
 }
 ```
 
+3. 快速求前三位
+
+更改2即可修改快速其他位数
+
+```c
+int solve(int n, int k)
+{
+    double d = log10(n*1.0);
+    int ans = (int)pow(10, 2 + fmod(k*d, 1));
+    return ans;
+}
+```
 
 整数位数
 ---
