@@ -157,7 +157,10 @@ public class BigDecimalDemo01{
 Java中的数据结构
 ---
 
-好文推荐: http://blog.csdn.net/meyoung01/article/details/15812895
+好文推荐: 
+1. http://blog.csdn.net/meyoung01/article/details/15812895
+2. http://www.cnblogs.com/eflylab/archive/2007/01/20/625164.html
+
 
 1. Set
 
