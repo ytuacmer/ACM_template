@@ -34,7 +34,8 @@ lln gcd(lln a, lln b)
     return b == 0? a : gcd(b, a%b);
 }
 
-// ax + by = d
+// ax + by = gcd(a, b)
+// 无论d的初始值，d为gcd(a, b)
 void gcd(lln a, lln b, lln &d, lln &x, lln &y)
 {
     if(!b) { d = a; x = 1; y = 0; }
