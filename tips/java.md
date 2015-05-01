@@ -3,6 +3,7 @@ Java相关技巧
 
 - [Java一般操作](#Java一般操作)
 - [Java针对大数的操作总结](#Java针对大数的操作总结)
+- [Java中的数据结构](#Java中的数据结构)
 
 Java一般操作
 ---
@@ -151,4 +152,21 @@ public class BigDecimalDemo01{
 乘法运算：34.48 
 除法运算：3.104 
 总结：针对大数以字符串的方式传人，再利用提供的加减乘除方法来操作数据，而不是以'+ - * /'来操作数据
+```
+
+Java中的数据结构
+---
+
+1. Set
+
+Set是接口，此外，还有诸多类，时间问题日后补充。
+
+```java
+import java.util.HashSet;
+
+Set set = new HashSet();
+set.clear();
+set.contains(element);
+set.insert(element);
+set.empty(element);
 ```
