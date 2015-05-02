@@ -78,8 +78,19 @@ ll getP(int n, int k)
  * 直接递推，返回需要的那一个
  * 注意溢出问题
  */
+
 const int maxn = 1000;
 ll C[maxn][maxn];
+
+void init()
+{
+    for(int i = 0; i < maxn; i++)
+    {
+        C[i][0] = C[i][i] = 1;
+        for(int j = 1; j < i; j++) C[i][j] = C[i-1][j] + C[i-1][j-1];
+    }
+}
+
 ll getC(int n, int k)
 {
     if(C[n][0] == 1)
@@ -87,8 +98,8 @@ ll getC(int n, int k)
 
     // 组合数性质
     C[n][0] = C[n][n] = 1;
-    for(int i = 0; i < n; i++)
-        C[n][i+1] = C[n][i] * (n-i)/(i+1);
+    for(int i = 1; i < n; i++)
+        C[n][i] = C[n][i-1] *(n-i+1)/i;
     return C[n][k];
 }
 
