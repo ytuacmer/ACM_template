@@ -1,14 +1,5 @@
 ```c
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <set>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <queue>
-#include <cmath>
-#include <bitset>
+#include <bits/stdc++.h>
 using namespace std;
 
 // 大数，内存处理
