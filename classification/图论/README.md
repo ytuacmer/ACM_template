@@ -104,9 +104,10 @@ void euler(int u)
     {
         vis[u][v] = vis[v][u] = 1;
         euler(v);
-        printf("%d %d\n", u, v);
+        printf("%d %d\n", v, u);
     }
 }
-
 ```
+
+白书给的是printf u v，需要逆序压栈。当然，我们只需要输出就可以了。
 
