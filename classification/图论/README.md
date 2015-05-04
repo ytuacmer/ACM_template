@@ -95,8 +95,9 @@ void AddEdge(int u, int v)
 欧拉回路
 ---
 
-```c
+判断这个图是否是一个能够遍历完所有的边而没有重复。
 
+```c
 void euler(int u)
 {
     for(int v = 0; v < n; v++) if(G[u][v] && !vis[u][v])
