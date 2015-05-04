@@ -6,6 +6,7 @@
 - [code](邻接表.cpp)
 - [无根树有根树转换](#无根树有根树转换)
 - [邻接表存节点](#邻接表存节点)
+- [欧拉回路](#欧拉回路)
 
 
 
@@ -91,4 +92,20 @@ void AddEdge(int u, int v)
 }
 ```
 
+欧拉回路
+---
+
+```c
+
+void euler(int u)
+{
+    for(int v = 0; v < n; v++) if(G[u][v] && !vis[u][v])
+    {
+        vis[u][v] = vis[v][u] = 1;
+        euler(v);
+        printf("%d %d\n", u, v);
+    }
+}
+
+```
 
