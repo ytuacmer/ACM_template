@@ -7,8 +7,9 @@
 - [无根树有根树转换](#无根树有根树转换)
 - [邻接表存节点](#邻接表存节点)
 - [欧拉回路](#欧拉回路)
-
-
+- [连通分量](#连通分量)
+- [二分图判定](#二分图判定)
+- [无向图的割顶和桥](#无向图的割顶和桥)
 
 无根树有根树转换
 ---
@@ -110,4 +111,113 @@ void euler(int u)
 ```
 
 白书给的是printf u v，需要逆序压栈。当然，我们只需要输出就可以了。
+
+连通分量
+---
+
+还可以使用并查集搞定，不会爆栈
+
+```c
+int current_c;
+
+void dfs(int u)
+{
+	vis[u] = 1;
+	// PREvisit
+	cc[u] = current_cc;
+	int d = G[u].size();
+	for(int i = 0; i< d; i++)
+	{
+		int v = G[u][v];
+		if(!vis[v]) dfs(v);
+	}
+}
+
+
+// 判断连通分量的个数
+void find_cc()
+{
+	current_cc = 0;
+	memset(vis, 0, sizeof(vis));
+	for(int i = 0; i < n; i++)
+	{
+		current_cc++;
+		dfs(u);
+	}
+}
+```
+
+二分图判定
+---
+
+二分图判定并且着色。把图分成不相关的两个部分
+
+常与最大[独立集](#独立集)共同
+
+```c
+// 二分图的判定
+// 初始化0, 黑色1, 白色2
+const int maxn = 1000;
+int color[maxn];
+bool biparitite(int u) {
+	for(int i = 0; i < G[u].size(); i++) {
+		int v = G[u][i];
+		if(color[v] == color[u]) return false; // 着色冲突
+		if(!color[v]) {
+			color[v] = 3 - color[u]; 			// 给结点v着相反颜色
+			if(!bipartite(v)) return false;
+		}
+	}
+}
+```
+
+独立集
+---
+
+最大独立集定义：从V个点中选出k个点，使得这k个点互不相邻。 那么最大的k就是这个图的最大独立数。
+1. 二分匹配得到最大匹配数（即最小覆盖数）
+2. 最大独立集 = 顶点数 - 最小覆盖数
+
+
+无向图的割顶和桥
+---
+
+无向图G，删除点u，连通分量数目增加，则u为图的关节点（割顶）。
+**对于连通图，割顶删除后图就不连通**
+
+iscut 为判定是否割点
+
+```c
+// 无向图的割顶和桥
+
+int dfs_clock;
+
+void init()
+{
+	dfs_clock = 0;
+	memset(pre, 0, sizeof(pre));
+}
+
+int dfs(int u, int fa) {
+	int lowu = pre[u] = ++dfs_clock;
+	int child = 0;
+	for(int i = 0; i < G[u].size(); i++) {
+		int v = G[u][i];
+		if(!pre[v]) {
+			child++;
+			int lowv = dfs(v, u);
+			lowu = min(lowu, lowv);
+			if(lowv >= pre[u]) {
+				iscut[u] = true;
+			}
+		}
+		else if(pre[v] < pre[u] && v != fa) {
+			lowu = min(lowu, pre[v]);
+		}
+	}
+	if(fa < 0 && child == 1) iscut[u] = 0;
+	low[u] = lowu;
+	return lowu;
+}
+```
 
