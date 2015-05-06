@@ -23,6 +23,7 @@
     * [概率](classification/概率/README.md)
     * [排序](classification/排序/README.md)
     * [STL模板](classification/STL模板/README.md)
+      * [STL中map用法详解](classification/STL模板/STL中map用法详解.md)
     * [哈希](classification/哈希/README.md)
     * [杂题，水题](classification/杂题，水题/README.md)
     * [组合数学](classification/组合数学/README.md)
