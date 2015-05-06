@@ -12,12 +12,12 @@ STL的相关模板
 
 set
 ---
-[STL之set集合容器](STL之set集合容器.md)
-[STL中的set容器的一点总结](STL中的set容器的一点总结.md)
+* [STL之set集合容器](STL之set集合容器.md)
+* [STL中的set容器的一点总结](STL中的set容器的一点总结.md)
 
 map
 ---
-[STL中map用法详解](STL中map用法详解.md)
+* [STL中map用法详解](STL中map用法详解.md)
 
 queue
 ---
