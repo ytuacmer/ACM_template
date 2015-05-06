@@ -10,6 +10,10 @@ STL的相关模板
 - [二分查找](#二分查找)
 - next_permutition()
 
+map
+---
+[STL中map用法详解](https://github.com/ytuacmer/ACM_templete/blob/master/classification/STL%E6%A8%A1%E6%9D%BF/STL%E4%B8%ADmap%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3.md)
+
 queue
 ---
 
