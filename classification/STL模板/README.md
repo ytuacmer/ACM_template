@@ -12,7 +12,7 @@ STL的相关模板
 
 map
 ---
-[STL中map用法详解](classification/STL模板/STL中map用法详解.md)
+[STL中map用法详解](STL中map用法详解.md)
 
 queue
 ---
