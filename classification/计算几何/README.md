@@ -410,6 +410,7 @@ double disA2B(double R,Point3 A,Point3 B)
 欧拉四面体公式
 ---
 **引用声明，来自：http://blog.csdn.net/archibaldyangfan/article/details/8035332**
+
 1，建立x，y，z直角坐标系。设A、B、C少拿点的坐标分别为(a1,b,1,c1),(a2,b2,c2),(a3,b3,c3),四面体O-ABC的六条棱长分别为l，m，n，p，q，r；
 
 ![](http://pic002.cnblogs.com/images/2012/168787/2012071315214513.png)
@@ -427,6 +428,7 @@ double disA2B(double R,Point3 A,Point3 B)
 ![](http://pic002.cnblogs.com/images/2012/168787/2012071315222945.png)
 
 又根据余弦定理得
+
 ![](http://pic002.cnblogs.com/images/2012/168787/2012071315223785.png)
 
 4，将上述的式子带入（1），就得到了传说中的欧拉四面体公式
