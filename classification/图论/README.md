@@ -10,6 +10,9 @@
 - [二分图判定](#二分图判定)
 - [无向图的割顶和桥](#无向图的割顶和桥)
 - [无向图的双连通分量](#无向图的双连通分量)
+- [最短路Dijkstra](#最短路Dijkstra)
+- [负权最短路Bellman-Ford](#负权最短路Bellman-Ford)
+- [所有点最短路Floyd](#所有点最短路Floyd)
 
 无根树有根树转换
 ---
@@ -64,33 +67,26 @@ int main()
     return 0;
 }
 
-```
+//2. 
 
-存边的写法，类似于哈希表中的拉链法
----
-
-```cpp
-struct Arc
+// untest
+const int maxn = 1000;
+const int maxm = 1000; // 最大边数
+int n, m;
+int first[maxn];
+int u[maxm], v[maxm], w[maxm], next[maxm];
+void read_graph()
 {
-    int next_arc;
-    int point;
-};
-
-#define MAXN 1000
-#define MAXE 1000
-
-int node[MAXN];
-Arc arc[E];
-
-//  以u开始，以v结束
-int EdgeCount = 0;;
-void AddEdge(int u, int v)
-{
-    arc[EdgeCount].next_arc = node[u];
-    arc[EdgeCount].point = v;
-    node[u] = EdgeCount;
-    EdgeCount++;
+	scanf("%d%d", &n, &m);
+	for(int i = 0; i < n;i ++) first[i] = -1;
+	for(int e = 0; e < m; e++)
+	{
+		scanf("%d%d%d", &u[e], v&[e], &w[e]);
+		next[e] = first[u[e]];
+		first[u[e]] = e;
+	}
 }
+
 ```
 
 欧拉回路
@@ -154,6 +150,8 @@ void find_cc()
 
 常与最大[独立集](#独立集)共同
 
+- untest
+
 ```c
 // 二分图的判定
 // 初始化0, 黑色1, 白色2
@@ -181,6 +179,8 @@ bool biparitite(int u) {
 
 无向图的割顶和桥
 ---
+
+- untest
 
 无向图G，删除点u，连通分量数目增加，则u为图的关节点（割顶）。
 **对于连通图，割顶删除后图就不连通**
@@ -223,6 +223,8 @@ int dfs(int u, int fa) {
 
 无向图的双连通分量
 ---
+
+- untest
 
 ```c
 int pre[maxn], iscut[maxn], bccno[maxn], dfs_clock, bcc_cnt;
@@ -281,4 +283,180 @@ void find_cc(int n)
 	for(int i = 0; i < n; i++)
 		if(!pre[i]) dfs(i, -1);
 }
+```
+
+最短路Dijkstra
+---
+
+- 2.untest
+
+```c
+
+//1. 
+const int MAXN = 100010*3;
+const int INF  = 1 << 30;
+
+struct HeapNode
+{
+    int d, u;
+    HeapNode() { }
+    HeapNode( int _d, int _u ): d(_d), u(_u) { }
+    bool operator<( const HeapNode& rhs ) const
+    {
+        return d > rhs.d;
+    }
+};
+
+struct Edge
+{
+    int from, to, dist;
+    Edge() { }
+    Edge( int f, int t, int d ) : from(f), to(t), dist(d) { }
+};
+
+struct Dijkstra
+{
+    int n, m;
+    vector<Edge> edges;
+    vector<int> G[MAXN];
+    bool done[MAXN];
+    int d[MAXN], p[MAXN];
+
+    void init( int n )
+    {
+        this->n = n;
+        for ( int i = 0; i <= n; ++i ) G[i].clear();
+        edges.clear();
+        return;
+    }
+
+    void AddEdge( int from, int to, int dist )
+    {
+        edges.push_back( Edge( from, to, dist ) );
+        m = edges.size();
+        G[from].push_back(m - 1);
+        return;
+    }
+
+    void dijkstra( int s )
+    {
+        priority_queue<HeapNode> Q;
+        for ( int i = 0; i <= n; ++i ) d[i] = INF;
+        d[s] = 0;
+        memset( done, 0, sizeof(done) );
+        Q.push( HeapNode( 0, s ) );
+        while ( !Q.empty() )
+        {
+            HeapNode x = Q.top();
+            Q.pop();
+            int u = x.u;
+            if ( done[u] ) continue;
+            done[u] = true;
+            for ( int i = 0; i < (int)G[u].size(); ++i )
+            {
+                Edge& e = edges[ G[u][i] ];
+                if ( d[e.to] > d[u] + e.dist )
+                {
+                    d[e.to] = d[u] + e.dist;
+                    p[e.to] = G[u][i];
+                    Q.push( HeapNode( d[e.to], e.to ) );
+                }
+            }
+        }
+        return;
+    }
+};
+
+
+
+//2.
+
+const int maxn = 1000;
+
+typedef pair<int, int> pii;
+
+struct cmp
+{
+	bool operator() (const int a, const int b)
+	{
+		return a % 10 > b % 10;
+	}
+};
+
+priority_queue <int, vector<int>, cmp> q;
+
+void Dijkstra()
+{
+	bool done[maxn];
+	for(int i = 0; i < n; i++) d[i] = (i == 0? 0:INF);
+	memset(done, 0, sizeof(done));
+	q.push(make_pair(d[0], 0));
+	while(!q.empty())
+	{
+		pii u = q.top(); q.pop();
+		int x = u.second;
+		if(done[x]) continue;
+		done[x] = true;
+		for(int e = first[x]; e != -1; e = next[e]) if(d[v[e]] > d[x] + w[e])
+		{
+			d[v[e]] = d[x] + w[e];
+			q.push(make_pair(d[v[e]], v[e]));
+		}
+	}
+}
+
+```
+
+负权最短路Bellman-Ford
+---
+
+- untest
+
+```c
+// 未使用优先队列的bellman
+void bellman()
+{
+	for(int i = 0; i < n ;i++) d[i] = INF;
+	d[0] = 0;
+	for(int k = 0; k < n-1; k++)
+	{
+		for(int i = 0; i< m; i++)
+		{
+			int x= u[i], y= v[i];
+			if(d[x] < INF) d[y] = min(d[y], d[x] + w[i]);
+		}
+	}
+}
+
+//使用有限队列的bellman
+void bellman()
+{
+	queue <int> q;
+	bool inq[maxn];
+	for(int i = 0; i < n;i ++) d[i] = (i == 0? 0: INF);
+	memset(inq, 0, sizeof(inq));
+	q.push(0);
+	while(!q.empty())
+	{
+		int x= q.front(); q.pop();
+		inq[x] = false;
+		for(int e = first[x]; e != -1; e = next[e]) if(d[v[e]] > d[x] + w[e])
+		{
+			d[v[e]] = d[x] + w[e];d
+				if(!inq[v[e]])
+				{
+					inq[v[e]] = true;
+					q.push(v[e]);
+				}
+		}
+	}
+}
+```
+
+所有点最短路Floyd
+---
+
+```c
+
+
 ```
