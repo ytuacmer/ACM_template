@@ -10,9 +10,14 @@ STL的相关模板
 - [二分查找](#二分查找)
 - next_permutition()
 
+set
+---
+* [STL之set集合容器（转）](STL之set集合容器.md)
+* [STL中的set容器的一点总结（转）](STL中的set容器的一点总结.md)
+
 map
 ---
-[STL中map用法详解](STL中map用法详解.md)
+* [STL中map用法详解（转）](STL中map用法详解.md)
 
 queue
 ---
